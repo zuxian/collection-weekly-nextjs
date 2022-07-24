@@ -2,13 +2,14 @@ import Link from "next/link";
 import { useState } from "react";
 import cn from "classnames";
 import Image from "next/image";
+import ThemeChanger from "./themeSwitch";
 
 export default function Header() {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
   return (
-    <header className="bg-green-600">
-      <div className="flex flex-wrap items-center justify-between lg:container px-4 py-6 mx-auto md:flex-no-wrap md:px-6">
+    <header className="bg-green-500 dark:bg-purple-800">
+      <div className="flex flex-wrap items-center justify-between lg:container px-4 py-6 mx-auto md:flex-no-wrap md:px-6 text-white dark:text-black">
         <div className="flex items-center">
           <Image
             src="/tailwind-logo.svg"
@@ -19,7 +20,7 @@ export default function Header() {
           />
 
           <Link href="/">
-            <a className="text-lg md:text-xl font-bold ml-3 text-white">
+            <a className="text-lg md:text-xl font-bold ml-3 ">
               收藏周刊
             </a>
           </Link>
@@ -51,10 +52,13 @@ export default function Header() {
           ].map(({ route, title }) => (
             <li className="mt-3 md:mt-0 md:ml-6 font-bold md:text-lg" key={title}>
               <Link href={route}>
-                <a className="block text-white">{title}</a>
+                <a className="block">{title}</a>
               </Link>
             </li>
           ))}
+          <li className="mt-3 md:mt-0 md:ml-6 font-bold md:text-lg" key="一键换肤">
+           <ThemeChanger  />
+          </li>
         </ul>
       </div>
     </header>
