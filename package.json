@@ -4,7 +4,7 @@
   "description": "Next.js starter styled with Tailwind CSS",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next -- -p 3033",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
