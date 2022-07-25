@@ -1,4 +1,4 @@
-# zuxian的收藏周刊
+# fuzuxian的收藏周刊
 
 # Next.js 
 
@@ -42,6 +42,52 @@ That's it! Now you can use dark-mode specific classes:
 ```js
 <h1 className="text-black dark:text-white">
 ```
+
+- 不同主题肤色-使用不同的图像
+
+
+```js
+import Image from 'next/image'
+import { useTheme } from 'next-themes'
+
+function ThemedImage() {
+  const { resolvedTheme } = useTheme()
+  let src
+  switch (resolvedTheme) {
+    case 'light':
+      src = '/tailwind-logo.svg'
+      break
+    case 'dark':
+      src = '/tailwind-logo-black.svg'
+      break
+    default:
+      src = '/tailwind-logo.svg'
+      break
+  }
+  return <Image src={src} width={40} height={40} />
+}
+
+export default ThemedImage
+```
+
+## 使用react-redux8
+
+安装 axios、react-redux、@reduxjs/toolkit、redux-logger
+
+- 感受一下react-redux7.1之后版本的新特性--useSelector、useDispatch
+
+
+
+
+- 使用@reduxjs/toolkit工具实现异步
+
+[juejin.cn/post/7063442144916144158](https://juejin.cn/post/7063442144916144158#heading-0)
+
+
+
+
+- redux-logger-打印日志
+
 
 
 

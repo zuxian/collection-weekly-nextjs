@@ -10,7 +10,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="font-bold"
           >
-            ZU XIAN
+            FU ZU XIAN
           </a>
         </li>
 

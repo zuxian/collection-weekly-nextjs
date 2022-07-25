@@ -2,7 +2,26 @@ import Link from "next/link";
 import { useState } from "react";
 import cn from "classnames";
 import Image from "next/image";
-import ThemeChanger from "./themeSwitch";
+import ThemeChanger from "../themeSwitch";
+import { useTheme } from 'next-themes'
+
+
+function ThemedImage() {
+  const { resolvedTheme } = useTheme()
+  let src
+  switch (resolvedTheme) {
+    case 'light':
+      src = '/tailwind-logo.svg'
+      break
+    case 'dark':
+      src = '/tailwind-logo-black.svg'
+      break
+    default:
+      src = '/tailwind-logo.svg'
+      break
+  }
+  return <Image src={src} width={40} height={40} priority alt="Tailwind CSS logo" />
+}
 
 export default function Header() {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
@@ -11,13 +30,15 @@ export default function Header() {
     <header className="bg-green-500 dark:bg-purple-800">
       <div className="flex flex-wrap items-center justify-between lg:container px-4 py-6 mx-auto md:flex-no-wrap md:px-6 text-white dark:text-black">
         <div className="flex items-center">
-          <Image
+          {/* <Image
             src="/tailwind-logo.svg"
             width={40}
             height={40}
             priority
             alt="Tailwind CSS logo"
-          />
+          /> */}
+
+          <ThemedImage />
 
           <Link href="/">
             <a className="text-lg md:text-xl font-bold ml-3 ">
